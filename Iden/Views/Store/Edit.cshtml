@@ -1,0 +1,74 @@
+﻿@model ToyStore.Domain.Entities.Store
+
+<h1>Editar a loja</h1>
+
+<style>
+    form {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-bottom: 10px;
+    }
+
+    select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+    .back-link {
+        display: inline-block;
+        color: #1e90ff;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+    }
+
+        .back-link:hover {
+            color: #ff4500;
+        }
+
+</style>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div>
+        <label for="Name">Name</label>
+        <input type="text" name="Name" value="@Model.Name" required />
+    </div>
+    <button type="submit">Salvar</button>
+</form>
+
+<a class="back-link" href="@Url.Action("Index")">Voltar a lista de lojas</a>

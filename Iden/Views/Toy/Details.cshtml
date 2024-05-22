@@ -1,0 +1,47 @@
+﻿@model ToyStore.Domain.Entities.Toy
+
+<h1>Detalhes do brinquedo</h1>
+
+<style>
+    h1 {
+        font-size: 2em; 
+        color: #333;
+        margin-bottom: 20px; 
+    }
+
+    p {
+        font-size: 1.1em;
+        margin-bottom: 10px; 
+    }
+
+    a {
+        display: inline-block; 
+        padding: 10px 15px; 
+        color: #fff; 
+        text-decoration: none; 
+        border-radius: 5px; 
+        transition: color 0.3s;
+    }
+
+        a:hover {
+            color: #ff4500; 
+        }
+
+    .edit-link {
+        background-color: #FFC107; 
+    }
+
+    .back-link {
+        background-color: #4CAF50; 
+    }
+
+</style>
+
+<p>Id: @Model.Id</p>
+<p>Name: @Model.Name</p>
+<p>Type: @Model.Type</p>
+<p>Price: @Model.Price</p>
+<p>Store: @(Model.StoreId != 0 ? Model.Store.Name : "Sem loja")</p>
+
+<a class="edit-link" href="@Url.Action("Edit", new { id = Model.Id })">Editar brinquedo</a>
+<a class="back-link" href="@Url.Action("Index")">Voltar a lista de brinquedos</a>

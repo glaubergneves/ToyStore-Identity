@@ -1,0 +1,116 @@
+﻿@model IEnumerable<ToyStore.Domain.Entities.Store>
+
+<h1>Todas as lojas</h1>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        color: #333;
+        padding: 10px;
+        text-align: left;
+    }
+
+    td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    a {
+        color: #1e90ff;
+        text-decoration: none;
+    }
+
+        a:hover {
+            color: #ff4500;
+        }
+
+    .create-button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+        .create-button:hover {
+            background-color: #45a049;
+        }
+
+    .details-button {
+        padding: 6px 10px;
+        background-color: #2196F3;
+        color: white;
+        text-decoration: none;
+        border-radius: 3px;
+        font-size: 0.9em;
+        transition: background-color 0.3s;
+    }
+
+        .details-button:hover {
+            background-color: #1976D2;
+        }
+
+    .edit-button {
+        padding: 6px 10px;
+        background-color: #FFC107;
+        color: white;
+        text-decoration: none;
+        border-radius: 3px;
+        font-size: 0.9em;
+        transition: background-color 0.3s;
+    }
+
+        .edit-button:hover {
+            background-color: #FFA000;
+        }
+
+    .delete-button {
+        padding: 6px 10px;
+        background-color: #f44336;
+        color: white;
+        text-decoration: none;
+        border-radius: 3px;
+        font-size: 0.9em;
+        transition: background-color 0.3s;
+    }
+
+        .delete-button:hover {
+            background-color: #d32f2f;
+        }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var store in Model)
+        {
+            <tr>
+                <td>@store.Id</td>
+                <td>@store.Name</td>
+                <td>
+                    <a class="details-button" href="@Url.Action("Details", new { id = store.Id })">Detalhes</a> |
+                    <a class="edit-button"  href="@Url.Action("Edit", new { id = store.Id })">Editar</a> |
+                    <a class="delete-button" href="@Url.Action("Delete", new { id = store.Id })">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a class="create-button" href="@Url.Action("Create")">Criar nova loja</a>
